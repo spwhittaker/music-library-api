@@ -57,7 +57,7 @@ describe('/artists', () => {
     });
 
     describe('GET /artists', () => {
-      xit('gets all artist records', done => {
+      it('gets all artist records', done => {
         request(app)
           .get('/artists')
           .then(res => {
@@ -75,7 +75,7 @@ describe('/artists', () => {
     });
 
     describe('GET /artist/:artistId', () => {
-      xit('gets artist record by id', done => {
+      it('gets artist record by id', done => {
         const artist = artists[0];
         request(app)
           .get(`/artists/${artist._id}`)
@@ -87,7 +87,7 @@ describe('/artists', () => {
           });
       });
 
-      xit('returns a 404 if the artist does not exist', done => {
+      it('returns a 404 if the artist does not exist', done => {
         request(app)
           .get('/artists/12345')
           .then(res => {
@@ -99,7 +99,7 @@ describe('/artists', () => {
     });
 
     describe('PATCH /artists/:artistId', () => {
-      xit('updates artist genre by id', done => {
+      it('updates artist genre by id', done => {
         const artist = artists[0];
         request(app)
           .patch(`/artists/${artist._id}`)
@@ -113,7 +113,7 @@ describe('/artists', () => {
           });
       });
 
-      xit('returns a 404 if the artist does not exist', done => {
+      it('returns a 404 if the artist does not exist', done => {
         request(app)
           .patch('/artists/12345')
           .send({ genre: 'Psychedelic Rock' })
