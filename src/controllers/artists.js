@@ -45,11 +45,11 @@ exports.updateArtist = (req, res) => {
 };
 
 exports.deleteArtist = (req, res) => {
-  return Artist.findOneAndRemove({ _id: req.params.id }, (err, artist) => {
-    console.log(artist);
-    if (err) {
+  return Artist.findByIdAndRemove({ _id: req.params.id }, (err, artist) => {
+    if (!artist) {
       res.status(404).json({ error: 'The artist could not be found.' });
+    } else {
+      res.status(204).json({ artist });
     }
-    return res.status(204);
   });
 };

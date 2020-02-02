@@ -126,7 +126,7 @@ describe('/artists', () => {
     });
 
     describe('DELETE /artists/:artistId', () => {
-      xit('deletes artist record by id', done => {
+      it('deletes artist record by id', done => {
         const artist = artists[0];
         request(app)
           .delete(`/artists/${artist._id}`)
@@ -140,7 +140,7 @@ describe('/artists', () => {
           });
       });
 
-      xit('returns a 404 if the artist does not exist', done => {
+      it('returns a 404 if the artist does not exist', done => {
         request(app)
           .delete('/artists/12345')
           .then(res => {
