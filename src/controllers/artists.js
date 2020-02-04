@@ -26,7 +26,6 @@ exports.findArtist = (req, res) => {
 };
 
 exports.updateArtist = (req, res) => {
-  console.log('something');
   Artist.findOne({ _id: req.params.id }, (err, artist) => {
     if (!artist) {
       res.status(404).json({ error: 'The artist could not be found.' });
@@ -37,7 +36,7 @@ exports.updateArtist = (req, res) => {
       if (req.body.genre) {
         artist.set({ genre: req.body.genre });
       }
-      artist.save();
+      artist.save().then();
 
       res.status(200).json(artist);
     }
